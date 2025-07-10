@@ -125,7 +125,7 @@ export default function About(){
   {/* END nav */}
   <section
     className="hero-wrap hero-wrap-2"
-    style={{ backgroundImage: 'url("images/bg_2.jpg")' }}
+    style={{ backgroundImage: 'url("/assets/images/bg_2.jpg")' }}
     data-stellar-background-ratio="0.5"
   >
     <div className="overlay" />
@@ -153,7 +153,7 @@ export default function About(){
         <div className="col-md-5 d-flex">
           <div
             className="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-            style={{ backgroundImage: "url(images/about-1.jpg)" }}
+            style={{ backgroundImage: "url(/assets/images/about-1.jpg)" }}
           ></div>
         </div>
         <div className="col-md-7 pl-md-5 py-md-5">
@@ -274,7 +274,7 @@ export default function About(){
         <div className="col-lg-6 order-md-last">
           <div
             className="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-            style={{ backgroundImage: "url(images/about.jpg)" }}
+            style={{ backgroundImage: "url(/assets/images/about.jpg)" }}
           >
             <a
               href="https://vimeo.com/45830194"
@@ -286,11 +286,11 @@ export default function About(){
           <div className="d-flex mt-3">
             <div
               className="img img-2 mr-md-2"
-              style={{ backgroundImage: "url(images/about-2.jpg)" }}
+              style={{ backgroundImage: "url(/assets/images/about-2.jpg)" }}
             />
             <div
               className="img img-2 ml-md-2"
-              style={{ backgroundImage: "url(images/about-3.jpg)" }}
+              style={{ backgroundImage: "url(/assets/images/about-3.jpg)" }}
             />
           </div>
         </div>
@@ -455,7 +455,7 @@ export default function About(){
   </section>
   <section
     className="ftco-section testimony-section"
-    style={{ backgroundImage: 'url("images/bg_2.jpg")' }}
+    style={{ backgroundImage: 'url("/assets/images/bg_2.jpg")' }}
   >
     <div className="overlay" />
     <div className="container">
@@ -481,7 +481,7 @@ export default function About(){
                   <div className="d-flex align-items-center">
                     <div
                       className="user-img"
-                      style={{ backgroundImage: "url(images/person_1.jpg)" }}
+                      style={{ backgroundImage: "url(/assets/images/person_1.jpg)" }}
                     />
                     <div className="pl-3">
                       <p className="name">Roger Scott</p>
@@ -505,7 +505,7 @@ export default function About(){
                   <div className="d-flex align-items-center">
                     <div
                       className="user-img"
-                      style={{ backgroundImage: "url(images/person_2.jpg)" }}
+                      style={{ backgroundImage: "url(/assets/images/person_2.jpg)" }}
                     />
                     <div className="pl-3">
                       <p className="name">Roger Scott</p>
@@ -529,7 +529,7 @@ export default function About(){
                   <div className="d-flex align-items-center">
                     <div
                       className="user-img"
-                      style={{ backgroundImage: "url(images/person_3.jpg)" }}
+                      style={{ backgroundImage: "url(/assets/images/person_3.jpg)" }}
                     />
                     <div className="pl-3">
                       <p className="name">Roger Scott</p>
@@ -553,7 +553,7 @@ export default function About(){
                   <div className="d-flex align-items-center">
                     <div
                       className="user-img"
-                      style={{ backgroundImage: "url(images/person_1.jpg)" }}
+                      style={{ backgroundImage: "url(/assets/images/person_1.jpg)" }}
                     />
                     <div className="pl-3">
                       <p className="name">Roger Scott</p>
@@ -577,7 +577,7 @@ export default function About(){
                   <div className="d-flex align-items-center">
                     <div
                       className="user-img"
-                      style={{ backgroundImage: "url(images/person_2.jpg)" }}
+                      style={{ backgroundImage: "url(/assets/images/person_2.jpg)" }}
                     />
                     <div className="pl-3">
                       <p className="name">Roger Scott</p>
@@ -594,7 +594,7 @@ export default function About(){
   </section>
   <section
     className="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
-    style={{ backgroundImage: "url(images/bg_3.jpg)" }}
+    style={{ backgroundImage: "url(/assets/images/bg_3.jpg)" }}
   >
     <div className="overlay" />
     <div className="container">
@@ -743,7 +743,7 @@ export default function About(){
           <div className="block-21 mb-4 d-flex">
             <a
               className="img mr-4 rounded"
-              style={{ backgroundImage: "url(images/image_1.jpg)" }}
+              style={{ backgroundImage: "url(/assets/images/image_1.jpg)" }}
             />
             <div className="text">
               <h3 className="heading">
@@ -773,7 +773,7 @@ export default function About(){
           <div className="block-21 mb-4 d-flex">
             <a
               className="img mr-4 rounded"
-              style={{ backgroundImage: "url(images/image_2.jpg)" }}
+              style={{ backgroundImage: "url(/assets/images/image_2.jpg)" }}
             />
             <div className="text">
               <h3 className="heading">
