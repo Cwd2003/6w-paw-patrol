@@ -1,5 +1,9 @@
+import About from "./components/pages/About"
 function App(){
   return (
-    <> Hello</>
+    <> 
+    <About/>
+    </>
   )
-}export default App
+}
+export default App
