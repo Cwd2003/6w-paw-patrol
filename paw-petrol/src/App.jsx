@@ -9,14 +9,18 @@ import Pricing from "./components/pages/Pricing"
 function App() {
   return (
     <>
-      <About />
-      <Contact />
-      <Blog></Blog>
-      <Services />
-      <Vet />
-      <Blogsingle />
-      <Gallery />
-      <Pricing />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/vet" element={<Vet />} />
+          <Route path="/blogsingle" element={<Blogsingle />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/pricing" element={<Pricing />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
