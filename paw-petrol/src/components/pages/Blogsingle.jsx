@@ -6,122 +6,54 @@ export default function Blogsingle(){
       <div className="row">
         <div className="col-md-6 d-flex align-items-center">
           <p className="mb-0 phone pl-md-2">
-            <a href="#" className="mr-2">
+            <Link to="#" className="mr-2">
               <span className="fa fa-phone mr-1" /> +00 1234 567
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <span className="fa fa-paper-plane mr-1" /> youremail@email.com
-            </a>
+            </Link>
           </p>
         </div>
         <div className="col-md-6 d-flex justify-content-md-end">
           <div className="social-media">
             <p className="mb-0 d-flex">
-              <a
-                href="#"
+              <Link to="#"
                 className="d-flex align-items-center justify-content-center"
               >
                 <span className="fa fa-facebook">
                   <i className="sr-only">Facebook</i>
                 </span>
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link to="#"
                 className="d-flex align-items-center justify-content-center"
               >
                 <span className="fa fa-twitter">
                   <i className="sr-only">Twitter</i>
                 </span>
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+             to="#"
                 className="d-flex align-items-center justify-content-center"
               >
                 <span className="fa fa-instagram">
                   <i className="sr-only">Instagram</i>
                 </span>
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+             to="#"
                 className="d-flex align-items-center justify-content-center"
               >
                 <span className="fa fa-dribbble">
                   <i className="sr-only">Dribbble</i>
                 </span>
-              </a>
+              </Link>
             </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <nav
-    className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-    id="ftco-navbar"
-  >
-    <div className="container">
-      <a className="navbar-brand" href="index.html">
-        <span className="flaticon-pawprint-1 mr-2" />
-        Pet sitting
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#ftco-nav"
-        aria-controls="ftco-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="fa fa-bars" /> Menu
-      </button>
-      <div className="collapse navbar-collapse" id="ftco-nav">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <a href="index.html" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="about.html" className="nav-link">
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="vet.html" className="nav-link">
-              Veterinarian
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="services.html" className="nav-link">
-              Services
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="gallery.html" className="nav-link">
-              Gallery
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="pricing.html" className="nav-link">
-              Pricing
-            </a>
-          </li>
-          <li className="nav-item active">
-            <a href="blog.html" className="nav-link">
-              Blog
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="contact.html" className="nav-link">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  {/* END nav */}
+
   <section
     className="hero-wrap hero-wrap-2"
     style={{ backgroundImage: 'url("/assets/images/bg_2.jpg")' }}
@@ -133,14 +65,14 @@ export default function Blogsingle(){
         <div className="col-md-9 ftco-animate pb-5">
           <p className="breadcrumbs mb-2">
             <span className="mr-2">
-              <a href="index.html">
+              <Link to="index.html">
                 Home <i className="ion-ios-arrow-forward" />
-              </a>
+              </Link>
             </span>{" "}
             <span className="mr-2">
-              <a href="blog.html">
+              <Link to="blog.html">
                 Blog <i className="ion-ios-arrow-forward" />
-              </a>
+              </Link>
             </span>{" "}
             <span>
               Blog Single <i className="ion-ios-arrow-forward" />
@@ -159,7 +91,7 @@ export default function Blogsingle(){
             <img src="/assets/images/image_1.jpg" alt="" className="img-fluid" />
           </p>
           <h2 className="mb-3">
-            It is a long established fact a reader be distracted
+            It is Link long established fact Link reader be distracted
           </h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -216,7 +148,7 @@ export default function Blogsingle(){
           </p>
           <p>
             Voluptas dolores dignissimos dolorum temporibus, autem aliquam
-            ducimus at officia adipisci quasi nemo a perspiciatis provident
+            ducimus at officia adipisci quasi nemo Link perspiciatis provident
             magni laboriosam repudiandae iure iusto commodi debitis est
             blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit.
             Error provident, pariatur cupiditate soluta doloremque aut ratione.
@@ -225,18 +157,18 @@ export default function Blogsingle(){
           </p>
           <div className="tag-widget post-tag-container mb-5 mt-5">
             <div className="tagcloud">
-              <a href="#" className="tag-cloud-link">
+              <Link to="#" className="tag-cloud-link">
                 Life
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 Sport
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 Tech
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 Travel
-              </a>
+              </Link>
             </div>
           </div>
           <div className="about-author d-flex p-4 bg-light">
@@ -274,9 +206,9 @@ export default function Blogsingle(){
                     Quam voluptas earum impedit necessitatibus, nihil?
                   </p>
                   <p>
-                    <a href="#" className="reply">
+                    <Link to="#" className="reply">
                       Reply
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </li>
@@ -294,9 +226,9 @@ export default function Blogsingle(){
                     Quam voluptas earum impedit necessitatibus, nihil?
                   </p>
                   <p>
-                    <a href="#" className="reply">
+                    <Link to="#" className="reply">
                       Reply
-                    </a>
+                    </Link>
                   </p>
                 </div>
                 <ul className="children">
@@ -315,9 +247,9 @@ export default function Blogsingle(){
                         necessitatibus, nihil?
                       </p>
                       <p>
-                        <a href="#" className="reply">
+                        <Link to="#" className="reply">
                           Reply
-                        </a>
+                        </Link>
                       </p>
                     </div>
                     <ul className="children">
@@ -339,9 +271,9 @@ export default function Blogsingle(){
                             necessitatibus, nihil?
                           </p>
                           <p>
-                            <a href="#" className="reply">
+                            <Link to="#" className="reply">
                               Reply
-                            </a>
+                            </Link>
                           </p>
                         </div>
                         <ul className="children">
@@ -366,9 +298,9 @@ export default function Blogsingle(){
                                 nihil?
                               </p>
                               <p>
-                                <a href="#" className="reply">
+                                <Link to="#" className="reply">
                                   Reply
-                                </a>
+                                </Link>
                               </p>
                             </div>
                           </li>
@@ -392,16 +324,16 @@ export default function Blogsingle(){
                     Quam voluptas earum impedit necessitatibus, nihil?
                   </p>
                   <p>
-                    <a href="#" className="reply">
+                    <Link to="#" className="reply">
                       Reply
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </li>
             </ul>
             {/* END comment-list */}
             <div className="comment-form-wrap pt-5">
-              <h3 className="mb-5">Leave a comment</h3>
+              <h3 className="mb-5">Leave Link comment</h3>
               <form action="#" className="p-5 bg-light">
                 <div className="form-group">
                   <label htmlFor="name">Name *</label>
@@ -446,7 +378,7 @@ export default function Blogsingle(){
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Type a keyword and hit enter"
+                  placeholder="Type Link keyword and hit enter"
                 />
               </div>
             </form>
@@ -455,118 +387,118 @@ export default function Blogsingle(){
             <div className="categories">
               <h3>Services</h3>
               <li>
-                <a href="#">
+                <Link to="#">
                   Pet Sitting <span className="fa fa-chevron-right" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   Pet Daycare <span className="fa fa-chevron-right" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   Pet Grooming <span className="fa fa-chevron-right" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   Pet Spa <span className="fa fa-chevron-right" />
-                </a>
+                </Link>
               </li>
             </div>
           </div>
           <div className="sidebar-box ftco-animate">
             <h3>Recent Blog</h3>
             <div className="block-21 mb-4 d-flex">
-              <a
+              <Link
                 className="blog-img mr-4"
                 style={{ backgroundImage: "url(/assets/images/image_1.jpg)" }}
               />
               <div className="text">
                 <h3 className="heading">
-                  <a href="#">
+                  <Link to="#">
                     Even the all-powerful Pointing has no control about the
                     blind texts
-                  </a>
+                  </Link>
                 </h3>
                 <div className="meta">
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-calendar" /> April 7, 2020
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-person" /> Admin
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-chat" /> 19
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="block-21 mb-4 d-flex">
-              <a
+              <Link
                 className="blog-img mr-4"
                 style={{ backgroundImage: "url(/assets/images/image_2.jpg)" }}
               />
               <div className="text">
                 <h3 className="heading">
-                  <a href="#">
+                  <Link to="#">
                     Even the all-powerful Pointing has no control about the
                     blind texts
-                  </a>
+                  </Link>
                 </h3>
                 <div className="meta">
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-calendar" /> April 7, 2020
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-person" /> Admin
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-chat" /> 19
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="block-21 mb-4 d-flex">
-              <a
+              <Link
                 className="blog-img mr-4"
                 style={{ backgroundImage: "url(/assets/images/image_3.jpg)" }}
               />
               <div className="text">
                 <h3 className="heading">
-                  <a href="#">
+                  <Link to="#">
                     Even the all-powerful Pointing has no control about the
                     blind texts
-                  </a>
+                  </Link>
                 </h3>
                 <div className="meta">
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-calendar" /> April 7, 2020
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-person" /> Admin
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a href="#">
+                    <Link to="#">
                       <span className="icon-chat" /> 19
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -575,27 +507,27 @@ export default function Blogsingle(){
           <div className="sidebar-box ftco-animate">
             <h3>Tag Cloud</h3>
             <div className="tagcloud">
-              <a href="#" className="tag-cloud-link">
+              <Link to="#" className="tag-cloud-link">
                 cat
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 dog
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 pet
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 bird
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 husky
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 bulldog
-              </a>
-              <a href="#" className="tag-cloud-link">
+              </Link>
+              <Link to="#" className="tag-cloud-link">
                 food
-              </a>
+              </Link>
             </div>
           </div>
           <div className="sidebar-box ftco-animate">
@@ -623,95 +555,95 @@ export default function Blogsingle(){
           </p>
           <ul className="ftco-footer-social p-0">
             <li className="ftco-animate">
-              <a
-                href="#"
+              <Link
+            Link to="#"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Twitter"
               >
                 <span className="fa fa-twitter" />
-              </a>
+              </Link>
             </li>
             <li className="ftco-animate">
-              <a
-                href="#"
+              <Link
+            Link to="#"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Facebook"
               >
                 <span className="fa fa-facebook" />
-              </a>
+              </Link>
             </li>
             <li className="ftco-animate">
-              <a
-                href="#"
+              <Link
+            Link to="#"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Instagram"
               >
                 <span className="fa fa-instagram" />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="col-md-6 col-lg-3 mb-4 mb-md-0">
           <h2 className="footer-heading">Latest News</h2>
           <div className="block-21 mb-4 d-flex">
-            <a
+            <Link
               className="img mr-4 rounded"
               style={{ backgroundImage: "url(/assets/images/image_1.jpg)" }}
             />
             <div className="text">
               <h3 className="heading">
-                <a href="#">
+                <Link to="#">
                   Even the all-powerful Pointing has no control about
-                </a>
+                </Link>
               </h3>
               <div className="meta">
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <span className="icon-calendar" /> April 7, 2020
-                  </a>
+                  </Link>
                 </div>
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <span className="icon-person" /> Admin
-                  </a>
+                  </Link>
                 </div>
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <span className="icon-chat" /> 19
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
           <div className="block-21 mb-4 d-flex">
-            <a
+            <Link
               className="img mr-4 rounded"
               style={{ backgroundImage: "url(/assets/images/image_2.jpg)" }}
             />
             <div className="text">
               <h3 className="heading">
-                <a href="#">
+                <Link to="#">
                   Even the all-powerful Pointing has no control about
-                </a>
+                </Link>
               </h3>
               <div className="meta">
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <span className="icon-calendar" /> April 7, 2020
-                  </a>
+                  </Link>
                 </div>
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <span className="icon-person" /> Admin
-                  </a>
+                  </Link>
                 </div>
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <span className="icon-chat" /> 19
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -721,39 +653,39 @@ export default function Blogsingle(){
           <h2 className="footer-heading">Quick Links</h2>
           <ul className="list-unstyled">
             <li>
-              <a href="#" className="py-2 d-block">
+              <Link to="#" className="py-2 d-block">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="py-2 d-block">
+              <Link to="#" className="py-2 d-block">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="py-2 d-block">
+              <Link to="#" className="py-2 d-block">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="py-2 d-block">
+              <Link to="#" className="py-2 d-block">
                 Works
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="py-2 d-block">
+              <Link to="#" className="py-2 d-block">
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="py-2 d-block">
+              <Link to="#" className="py-2 d-block">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="col-md-6 col-lg-3 mb-4 mb-md-0">
-          <h2 className="footer-heading">Have a Questions?</h2>
+          <h2 className="footer-heading">Have Link Questions?</h2>
           <div className="block-23 mb-3">
             <ul>
               <li>
@@ -763,16 +695,16 @@ export default function Blogsingle(){
                 </span>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   <span className="icon fa fa-phone" />
                   <span className="text">+2 392 3929 210</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   <span className="icon fa fa-paper-plane" />
                   <span className="text">info@yourdomain.com</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -784,9 +716,9 @@ export default function Blogsingle(){
             {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
             Copyright © All rights reserved | This template is made with{" "}
             <i className="fa fa-heart" aria-hidden="true" /> by{" "}
-            <a href="https://colorlib.com" target="_blank">
+            <Link to="https://colorlib.com" target="_blank">
               Colorlib.com
-            </a>
+            </Link>
             {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
           </p>
         </div>
