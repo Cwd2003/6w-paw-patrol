@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function Header(){
     return(
         <>
@@ -6,10 +7,10 @@ export default function Header(){
     id="ftco-navbar"
   >
     <div className="container">
-      <a className="navbar-brand" href="index.html">
+      <Link className="navbar-brand" to="index.html">
         <span className="flaticon-pawprint-1 mr-2" />
         Pet sitting
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -24,44 +25,49 @@ export default function Header(){
       <div className="collapse navbar-collapse" id="ftco-nav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a href="index.html" className="nav-link">
+            <Link to="/" className="nav-link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item active">
-            <a href="about.html" className="nav-link">
+            <Link to="About" className="nav-link">
               About
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="vet.html" className="nav-link">
+            <Link to="Vet" className="nav-link">
               Veterinarian
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="services.html" className="nav-link">
+            <Link to="Services" className="nav-link">
               Services
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="gallery.html" className="nav-link">
+            <Link to="Gallery" className="nav-link">
               Gallery
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="pricing.html" className="nav-link">
+            <Link to="Pricing" className="nav-link">
               Pricing
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="blog.html" className="nav-link">
+            <Link to="Blog" className="nav-link">
               Blog
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="contact.html" className="nav-link">
+            <Link to="Contact" className="nav-link">
               Contact
-            </a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="Login" className="nav-link">
+              Login
+            </Link>
           </li>
         </ul>
       </div>
