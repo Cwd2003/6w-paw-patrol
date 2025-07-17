@@ -3,7 +3,8 @@ import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { auth } from "../../firebase";
+import { auth,db } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function Login() {
   const [email, setEmail] = useState("deep@gmail.com")
@@ -18,21 +19,36 @@ export default function Login() {
     e.preventDefault() //stop from reload
     signInWithEmailAndPassword(auth, email, password)
       .then((userCred) => {
-        console.log("sign in", userCred.user.uid);
-        toast.success("Login successfully!!")
+      let userId=userCred.user.uid
+        getUserData(userId)
         nav("/")
       })
       .catch((error) => {
         toast.error(error.message);
       })
   }
+  const getUserData=async (userId)=>{
+        let userDoc=await getDoc(doc(db, "users", userId))
+        // console.log(userDoc.data())
+        let userData=userDoc.data()
+        sessionStorage.setItem("name", userData?.name)
+        sessionStorage.setItem("email", userData?.email)
+        sessionStorage.setItem("userType", userData?.userType)
+        sessionStorage.setItem("userId", userId)
+        sessionStorage.setItem("isLogin", true)
+        toast.success("Login successfully")
+        if(userData?.userType==1){
+          nav("/admin")
+        }else{
+          nav("/")
+        }
+      }
   const signInGoogle = () => {
     let provider = new GoogleAuthProvider()
     signInWithPopup(auth, provider)
       .then((userCred) => {
-        console.log(userCred.user.uid);
-        toast.success("Login successfully")
-        nav("/")
+       let userId=userCred.user.uid 
+        getUserData(userId)
       })
       .catch((err) => {
         toast.error(err.message)

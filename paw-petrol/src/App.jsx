@@ -1,16 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify";
 import Contact from "./components/pages/Contact"
 import About from "./components/pages/About"
 import Blog from "./components/pages/Blog"
+import Home from "./components/pages/Home"
 import Services from "./components/pages/Services"
 import Vet from "./components/pages/Vet"
 import Blogsingle from "./components/pages/Blogsingle"
 import Gallery from "./components/pages/Gallery"
 import Pricing from "./components/pages/Pricing"
 import Error from "./components/pages/Error"
+import AdminLayout from "./components/layout/AdminLayout"
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./components/pages/Home"
+
 import Master from "./components/layout/Master"
 import Register from "./components/auth/Register"
 import Login from "./components/auth/Login"
@@ -33,6 +35,9 @@ function App() {
             <Route path="Login" element={<Login />} />
 
           </Route>
+           <Route path="/admin" element={<AdminLayout/>}>
+          
+                    </Route>
           <Route path="/*" element={<Error />} />
         </Routes>
       </BrowserRouter>

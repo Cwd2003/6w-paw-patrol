@@ -1,30 +1,70 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
-import { auth } from "../../firebase";
+import { auth ,db} from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import{getDoc, doc, setDoc,Timestamp} from "firebase/firestore"
+
 export default function Register() {
-  const [fullName, setFullName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [contact, setContact] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log("User Info:", { fullName, email, password, contact });
+    console.log("User Info:", { name, email, password, contact });
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log("User registered:", userCredential.user.uid);
-        toast.success("Registration successful!");
-        navigate("/login"); // redirect to login page
+      .then((userCred) => {
+        let userId=userCred.user.uid
+        saveData(userId)
       })
       .catch((error) => {
-        console.error("Error:", error.message);
+        
         toast.error("Registration failed: " + error.message);
       });
 
   };
+ const saveData=async (userId)=>{
+     try{
+     let data={
+       name:name, 
+       email:email,
+       contact:contact,
+       userType:3, 
+       userId:userId, 
+       status:true, 
+       createdAt:Timestamp.now()
+     }
+     // console.log(data);
+     
+     // setDoc(doc(db, collectionName, id))
+     await setDoc(doc(db, "users",userId), data)
+     toast.success("Registered successfully")
+      getUserData(userId)
+   }
+   catch(error){
+     toast.error(error.message)
+   }
+   }
+
+   const getUserData=async (userId)=>{
+        let userDoc=await getDoc(doc(db, "users", userId))
+        // console.log(userDoc.data())
+        let userData=userDoc.data()
+        sessionStorage.setItem("name", userData.name)
+        sessionStorage.setItem("email", userData.email)
+        sessionStorage.setItem("userType", userData.userType)
+         sessionStorage.setItem("userId", userId)
+          sessionStorage.setItem("isLogin", true)
+          toast.success("Login successfully")
+          if(userData.userType==1){
+            nav("/admin")
+          }else{
+            nav("/")
+          }
+      }
   return (
     <>
       <section
@@ -52,47 +92,7 @@ export default function Register() {
         </div>
       </section>
       <div className="container my-5">
-        {/* <div className="row justify-content-center">
-                    <div className="col-md-6">
-                        <form>
-                            <div className="mb-3">
-                                <label htmlFor="exampleInputEmail1" className="form-label">
-                                Email address
-                                </label>
-                                <input
-                                type="email"
-                                className="form-control"
-                                id="exampleInputEmail1"
-                                aria-describedby="emailHelp"
-                                />
-                                <div id="emailHelp" className="form-text">
-                                We'll never share your email with anyone else.
-                                </div>
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor="exampleInputPassword1" className="form-label">
-                                Password
-                                </label>
-                                <input
-                                type="password"
-                                className="form-control"
-                                id="exampleInputPassword1"
-                                />
-                            </div>
-                            <div className="mb-3 form-check">
-                                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                <label className="form-check-label" htmlFor="exampleCheck1">
-                                Check me out
-                                </label>
-                            </div>
-                            <button type="submit" className="btn btn-primary">
-                                Submit
-                            </button>
-                        </form>
-
-                    </div>
-                </div> */}
-
+        
         {/* contact form  */}
         <div className="row no-gutters">
           <div className="col-md-7">
@@ -116,8 +116,8 @@ export default function Register() {
                         name="fullName"
                         id="fullName"
                         placeholder="Full Name"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                   </div>
