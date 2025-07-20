@@ -11,6 +11,8 @@ import Gallery from "./components/pages/Gallery"
 import Pricing from "./components/pages/Pricing"
 import Error from "./components/pages/Error"
 import AdminLayout from "./components/layout/AdminLayout"
+import AddBreed from "./components/admin/breeds/AddBreed"
+import ManageBreed from "./components/admin/breeds/ManageBreed"
 
 
 import Master from "./components/layout/Master"
@@ -36,6 +38,8 @@ function App() {
 
           </Route>
            <Route path="/admin" element={<AdminLayout/>}>
+                      <Route path="breed/add" element={<AddBreed/>}/>
+                      <Route path="breed/manage" element={<ManageBreed/>}/>
           
                     </Route>
           <Route path="/*" element={<Error />} />

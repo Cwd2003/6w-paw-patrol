@@ -21,7 +21,7 @@ export default function Login() {
       .then((userCred) => {
       let userId=userCred.user.uid
         getUserData(userId)
-        nav("/")
+        
       })
       .catch((error) => {
         toast.error(error.message);
