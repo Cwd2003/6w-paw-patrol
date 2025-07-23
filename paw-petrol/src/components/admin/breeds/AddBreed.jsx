@@ -19,9 +19,10 @@ export default function AddBreed() {
 
     try {
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/dnxng3fkk/image/upload`, // Replace with your Cloudinary cloud name
+        `https://api.cloudinary.com/v1_1/dsomk9tdf/image/upload`, // ✅ fixed cloud name
         formData
       );
+
       const imageUrl = response.data.secure_url;
       await saveData(imageUrl);
     } catch (error) {
