@@ -1,23 +1,32 @@
-import { collection, deleteDoc, doc, onSnapshot, query, where } from "firebase/firestore";
+import { collection, deleteDoc, doc, getCountFromServer, limit, onSnapshot, query, updateDoc, where } from "firebase/firestore";
 import { use, useEffect, useState } from "react";
 import { Link } from "react-router-dom"
-import { db } from "../../../firebase";
+import { db } from "../../../Firebase";
 import { toast } from "react-toastify";
 import { PacmanLoader } from "react-spinners";
 import Swal from "sweetalert2";
-
-export default function ManageBreed(){
-    const [breeds, setBreeds]=useState([])
+import Switch from "react-switch";
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic-light-dark.css';
+import 'react-responsive-pagination/themes/classic-light-dark.css';
+export default function ManageUsers(){
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages]=useState(1)
+    const LIMIT=10
+    const [users, setUsers]=useState([])
     const [load, setLoad]=useState(true)
     const fetchData=()=>{
-      let q=  query(collection(db, "breeds") 
-    //   ,where("type","==","Dog")
+      let q=  query(collection(db, "users")
+    //   , where("status","==", true)
     )
-    onSnapshot(q,(breedsCol)=>{
-        setBreeds(breedsCol.docs?.map((el)=>{
+    onSnapshot(q,async (userCol)=>{
+        setUsers(userCol.docs?.map((el)=>{
             return {...el.data(), id:el.id};
         })) 
         setLoad(false)
+       let userCount=await getCountFromServer(collection(db, "users"))
+       let totalData=userCount.data().count
+        setTotalPages(Math.ceil(totalData/LIMIT)) 
       })
     }
 
@@ -28,7 +37,7 @@ export default function ManageBreed(){
     },[])
 
 
-    const DeleteBreed=(BreedId)=>{
+    const changeStatus=(userId, status)=>{
        
         Swal.fire({
         title: "Are you sure?",
@@ -37,13 +46,16 @@ export default function ManageBreed(){
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: `Yes, ${status?"Block":"un-block"}!`
         }).then(async (result) => {
         if (result.isConfirmed) {
-            await deleteDoc(doc(db,"breeds",BreedId))   
+            let data={
+                status:!status
+            }
+            await updateDoc(doc(db,"users",userId), data)   
             Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
+            title: `${status?"Blocked":"un-block"}!`,
+            // text: "Your file has been deleted.",
             icon: "success"
             });
         }
@@ -67,10 +79,10 @@ export default function ManageBreed(){
                     </Link>
                     </span>{" "}
                     <span>
-                    Breed <i className="ion-ios-arrow-forward" />
+                    Users <i className="ion-ios-arrow-forward" />
                     </span>
                 </p>
-                <h1 className="mb-0 bread">Breed</h1>
+                <h1 className="mb-0 bread">Users</h1>
                 </div>
             </div>
             </div>
@@ -81,49 +93,55 @@ export default function ManageBreed(){
             :
                 <div className="row">
                     <div className="col table-responsive">
-                        <div className="d-flex justify-content-end">
-                            <Link to={"/admin/breed/add"} className="btn btn-outline-primary">Add New +</Link>
-                        </div>
-                        <h1>Manage Breeds</h1>
+                      
+                        <h1>Manage Users</h1>
                         <table className="table table-hover table-striped">
                             <thead className="table-dark">
                                 <tr>
                                     <th>Sno</th>
-                                    <th>Image</th>
-                                    <th>Breed name</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
+                                    <th>Full name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                  
 
                                 </tr>
                             </thead>
                             <tbody>
-                                {breeds?.map((el,index)=>{
+                                {users?.slice((currentPage-1)*LIMIT, ((currentPage-1)*LIMIT)+LIMIT)?.map((el,index)=>{
                                     return(
                                         <tr key={index}>
-                                            <td>{index+1}</td>
+                                            <td>{(currentPage-1)*LIMIT+index+1}</td>
+                                            <td>{el?.name}</td>
+                                            <td>{el?.email}</td>
+                                            <td>{el?.contact}</td>
+                                            {/* <td>{el?.status?.toString()}</td> */}
                                             <td>
-                                                <img src={el?.image} style={{height:"50px", width:"50px"}}/>
+                                                {el.status?"Active":"In-active"}
                                             </td>
-                                            <td>{el?.breedName}</td>
-                                            <td>{el?.type}</td>
-                                            <td>{el?.description}</td>
                                             <td>
-                                                
-                                            <Link to={`/admin/breed/update/${el.id}`} className="btn btn-primary">
-                                            <i className="fa fa-edit"></i>
-                                            </Link>
-                                            <button className="btn btn-outline-danger mx-2" onClick={()=>{
-                                                DeleteBreed(el.id)
-                                            }}>
-                                                <i className="fa fa-trash"></i>
+                                            <button className="btn  mx-2" >
+                                                <Switch checked={el.status} onChange={()=>{
+                                                    changeStatus(el.id, el.status)
+                                                }}/>
                                             </button>
                                             </td>
                                         </tr>
                                     )
                                 })}
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colSpan={6}>
+                                         <ResponsivePagination
+                                            current={currentPage}
+                                            total={totalPages}
+                                            onPageChange={setCurrentPage}
+                                            />
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
 
                         {/* <div className="row">
@@ -161,13 +179,3 @@ export default function ManageBreed(){
 }
 
 
-//component create
-// table structure 
-// useEffect to load data on comp load 
-// function bnaya
-// query create and onsnapshot 
-// print collection 
-// map function
-// data ko print 
-// set breeds 
-// inside return on breeds add map to load tr 

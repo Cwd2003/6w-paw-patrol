@@ -3,16 +3,17 @@ import { useState } from "react"
 import { db } from "../../../firebase"
 import { toast } from "react-toastify"
 import axios from "axios"
-
+import { PacmanLoader } from "react-spinners"
 export default function AddBreed() {
   const [breedName, setBreedName] = useState("")
   const [description, setDescription] = useState("")
   const [type, setType] = useState("")
   const [imageName, setImageName] = useState("")
+  const [load, setLoad]=useState(false)
   const [image, setImage] = useState({})
-  const [url, setUrl] = useState("")
   const handleForm = async (e) => {
     e.preventDefault()
+    setLoad(true)
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "images"); // Replace with your upload preset
@@ -22,22 +23,21 @@ export default function AddBreed() {
         `https://api.cloudinary.com/v1_1/dsomk9tdf/image/upload`, // ✅ fixed cloud name
         formData
       );
-
-      const imageUrl = response.data.secure_url;
-      await saveData(imageUrl);
-    } catch (error) {
-      toast.error("Error uploading image:", error.message);
+    saveData(response.data.secure_url)
+        } catch (error) {
+            toast.error("Error uploading image:", error.message);
+            setLoad(false)
+        }
     }
-  }
 
-  const saveData = async (imageUrl) => {
+  const saveData = async (url) => {
     try {
       let data = {
         breedName,
         description,
         type,
         status: true,
-        image: imageUrl,
+        image: url,
         createdAt: Timestamp.now()
       }
       // console.log(data);
@@ -48,7 +48,6 @@ export default function AddBreed() {
       setType("")
       setImage({})
       setImageName("")
-      setUrl("")
     }
     catch (err) {
       toast.error(err.message)
@@ -86,7 +85,9 @@ export default function AddBreed() {
         </div>
       </section>
       <div className="container my-5">
-
+ {load ?
+              <PacmanLoader color="#00bd56" size={30} cssOverride={{display:"block", margin:"0 auto"}} loading={load}/>
+            :
         <div className="row no-gutters justify-content-center">
           <div className="col-md-7" style={{ boxShadow: "0px 0px 15px gray" }}>
             <div className="contact-wrap w-100 p-md-5 p-4">
@@ -184,6 +185,7 @@ export default function AddBreed() {
           </div>
 
         </div>
+}
       </div>
 
     </>

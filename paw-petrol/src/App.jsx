@@ -14,6 +14,9 @@ import AdminLayout from "./components/layout/AdminLayout"
 import AddBreed from "./components/admin/breeds/AddBreed"
 import ManageBreed from "./components/admin/breeds/ManageBreed"
 import UpdateBreed from "./components/admin/breeds/Updatebreeds"
+import ManageUsers from "./components/admin/pages/ManageUsers"
+import { useEffect } from "react"
+import Dashboard from "./components/admin/pages/Dashboard"
 
 
 import Master from "./components/layout/Master"
@@ -39,10 +42,11 @@ function App() {
 
           </Route>
            <Route path="/admin" element={<AdminLayout/>}>
+            <Route index element={<Dashboard/>}/>
                       <Route path="breed/add" element={<AddBreed/>}/>
                       <Route path="breed/manage" element={<ManageBreed/>}/>
                       <Route path="breed/update/:id" element={<UpdateBreed/>}/>
-          
+                      <Route path="user/manage" element={<ManageUsers/>}/>
                     </Route>
           <Route path="/*" element={<Error />} />
         </Routes>

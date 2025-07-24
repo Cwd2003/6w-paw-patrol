@@ -115,7 +115,7 @@ export default function AdminNavbar(){
               Breeds
             </Link>
           </li>
-<li className="dropdown nav-item ">
+            <li className="dropdown nav-item ">
               <a className="text-dark fw-bolder nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Breeds
               </a>
@@ -125,24 +125,28 @@ export default function AdminNavbar(){
                 <Link className="dropdown-item" to={"/admin/breed/manage"}>Manage</Link>
               </div>
             </li>    
-
-            
           <li className="nav-item">
             <a href="gallery.html" className="nav-link">
               Pets
             </a>
           </li>
        
-          <li className="nav-item">
-            <Link to="/blog" className="nav-link">
-              Ngo
-            </Link>
-          </li>
+         
           <li className="nav-item">
             <Link to="/contact" className="nav-link">
               Adoption
             </Link>
           </li>
+            <li className="dropdown nav-item ">
+              <a className="text-dark fw-bolder nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Pages
+              </a>
+
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <Link className="dropdown-item" to={"/admin/user/manage"}>Users</Link>
+                <Link className="dropdown-item" to={"/admin/breed/manage"}>Ngo</Link>
+              </div>
+            </li>    
            <li className="nav-item">
             {
               isLogin?
